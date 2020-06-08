@@ -6,12 +6,21 @@
 
 1. Clone repo
 2. Build python virtualenv
-3. Activate and install the need python libraries
+3. Create private.json in the apis directory
+
+```
+{
+    "host": "https://classic.warcraftlogs.com/v1",
+    "key": "..."
+}
+```
+
+4. Activate and install the need python libraries
 
 `source apis/venv/bin/activate`
 `pip install flask requests`
 
-4. Create uwsgi ini file
+5. Create uwsgi ini file
 
 ```
 [uwsgi]
@@ -28,7 +37,7 @@ die-on-term = true
 touch-reload = /var/www/apis/wow.py
 ```
 
-5. Create nginx configuration for the site
+6. Create nginx configuration for the site
 
 ```
 server {
