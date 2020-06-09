@@ -1,3 +1,4 @@
+let scheme = window.location.protocol;
 const worldBuffs = [
     "Fengus' Ferocity",
     "Mol'dar's Moxie",
@@ -32,7 +33,7 @@ function generateDOM(data) {
 }
 
 function getReports(zone) {
-    fetch('https://decent.team/api/buffReport?zone=' + zone)
+    fetch(scheme + '//decent.team/api/buffReport?zone=' + zone)
         .then(response => response.json())
         .then(responseData => {
             responseData.forEach(element => {

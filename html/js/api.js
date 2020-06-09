@@ -1,11 +1,12 @@
 var raid = null;
+let scheme = window.location.protocol;
 
 function getReports() {
     console.log('getReports');
     var select = document.getElementById('reports');
     select.setAttribute('onchange', 'getBuffs(this)');
 
-    fetch('https://decent.team/api/reports')
+    fetch(scheme + '//decent.team/api/reports')
         .then(response => response.json())
         .then(responseData => {
             responseData.forEach(element => {
@@ -45,7 +46,7 @@ function getBuffs(data) {
     select.setAttribute('onchange', 'getActive(this)');
     select.innerHTML = '<option>Choose the buff</option>';
 
-    fetch('https://decent.team/api/buffs?raid=' + raid)
+    fetch(scheme + '//decent.team/api/buffs?raid=' + raid)
         .then(response => response.json())
         .then(responseData => {
             var auras = responseData['auras'];
@@ -69,7 +70,7 @@ function getActive(data) {
     var playerList = document.getElementById('playerList');
     playerList.innerHTML = '';
 
-    fetch('https://decent.team/api/buffActive?raid=' + raid + '&buff=' + data.value)
+    fetch(scheme + '//decent.team/api/buffActive?raid=' + raid + '&buff=' + data.value)
         .then(response => response.json())
         .then(responseData => {
             responseData.forEach(element => {
