@@ -52,7 +52,8 @@ function getReports(zone) {
                 div.appendChild(table);
             });
             $('.table').dataTable({
-                "lengthMenu": [[10, 20, -1], [10, 20, "All"]]
+                "lengthMenu": [[10, 20, -1], [10, 20, "All"]],
+                'searching': false
             });
         });
 }
