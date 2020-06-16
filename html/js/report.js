@@ -51,6 +51,9 @@ function getReports(zone) {
                 generateTable(table, element);
                 div.appendChild(table);
             });
+            $('.table').dataTable({
+                "lengthMenu": [[10, 20, -1], [10, 20, "All"]]
+            });
         });
 }
 
@@ -92,6 +95,8 @@ function generateTable(table, data) {
 
                 if (buff['players'].includes(player.name)) {
                     buff_cell.style.backgroundColor = "green";
+                    buff_cell.style.color = "green";
+                    buff_cell.innerHTML = 1;
                     totalActiveBuffs += 1;
                 }
             });
